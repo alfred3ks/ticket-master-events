@@ -1,5 +1,12 @@
+// Importamos los componentes:
+import NavBar from './components/NavBar';
+
 const App = () => {
-  return <h1>Inicio de proyecto</h1>;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 };
 
 export default App;
