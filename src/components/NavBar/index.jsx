@@ -2,7 +2,7 @@
 const NavBar = () => {
   return (
     <div>
-      <label htmlFor="event">Eventos</label>
+      <label htmlFor="event">Mi ticket</label>
       <input type="text" placeholder="Busca tu evento favorito" id="event" />
     </div>
   );
