@@ -13,6 +13,11 @@ const Events = () => {
     _embedded: { events },
   } = data; // Asi nos viene del data.json: Asi accedemos directamente a los eventos. Con destructuring
 
+  // Creamos la función handle para el click en el EventItem
+  const handleEventItemClick = (id) => {
+    console.log(`Evento click sobre el item: ${id}`);
+  };
+
   return (
     <div>
       Events
@@ -20,10 +25,14 @@ const Events = () => {
       {events.map((eventItem) => {
         return (
           <EventItem
+            // Pasamos las props al componente:
             key={`event-item-${eventItem.id}`}
             name={eventItem.name}
             info={eventItem.info}
             image={eventItem.images[0].url}
+            id={eventItem.id}
+            // Pasamos un evento por props: Lo declaramos nosotros, recomendado que empiece por on: onEventClick
+            onEventClick={handleEventItemClick}
           />
         );
       })}
@@ -32,3 +41,9 @@ const Events = () => {
 };
 
 export default Events;
+
+/*
+Nota:
+Vemos como pasamos del padre las props, tambien vemos como el componente EventItem recibe como propiedad un evento, onEventClick={handleEventItemClick} que pasamos por props y que es utilizado en el boton de ver mas para que al hacer click nos muestre el id del Item del objeto JSON.
+
+*/

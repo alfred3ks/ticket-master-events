@@ -18,6 +18,7 @@ const NavBar = () => {
     <div>
       <label htmlFor="event">Mi ticket</label>
       <input
+        name="event"
         type="text"
         placeholder="Busca tu evento favorito"
         id="event"
