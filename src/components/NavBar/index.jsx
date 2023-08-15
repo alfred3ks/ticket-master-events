@@ -1,17 +1,22 @@
 import { useState } from 'react';
 
 // Creamos el componente del Navbar:
-const NavBar = () => {
+// eslint-disable-next-line react/prop-types
+const NavBar = ({ onSearch }) => {
   // defino estado para el input:
   const [search, getSearch] = useState('');
 
-  console.log(search); // Aqui vemos el valor que introduce el usuario en el input
-
   // Creamos nuestra funcion handle del input:
   const handleInputChange = (e) => {
-    // Obtenemos los que se escribe dentro del input:
-    console.log(e.target.value);
     getSearch(e.target.value);
+  };
+
+  // Definimos la funcion handle para el keydow:
+  const handleInputKeyDow = (e) => {
+    if (e.key === 'Enter') {
+      // Ejecutamos la busqueda al hacer click en enter:
+      onSearch(search);
+    }
   };
 
   return (
@@ -24,6 +29,8 @@ const NavBar = () => {
         id="event"
         onChange={handleInputChange}
         value={search}
+        // Agregamos este evento para saber que tecla se pulsa:
+        onKeyDown={handleInputKeyDow}
       />
     </div>
   );
